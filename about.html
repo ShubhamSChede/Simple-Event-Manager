@@ -1,0 +1,87 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['user_id']);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to MyEventPlanner</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+    
+                    <?php if ($isLoggedIn): ?>
+                        <li><a href="add-event.php">Add Event</a></li>
+                        <li><a href="php/logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    <?php endif; ?>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Welcome to MyEventPlanner</h1>
+        <p>
+            MyEventPlanner is a simple and effective way to manage your personal events and gatherings. Whether you're planning a birthday party, a conference, or any special occasion, this platform helps you keep track of your events in a hassle-free way.
+        </p>
+        <p>
+            Our mission is to make event planning easy and fun for everyone. With MyEventPlanner, you can create events, manage them, and share them with others with just a few clicks.
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 MyEventPlanner. All rights reserved.</p>
+    </footer>
+</body>
+</html>
